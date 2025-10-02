@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Leo.org Audio Downloader",
+  "version": "1.0",
+  "description": "Automatically downloads audio files from Leo.org",
+  "permissions": [
+    "downloads",
+    "webRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://dict.leo.org/media/audio/*",
+    "https://dict.leo.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Leo Audio Downloader"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://dict.leo.org/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
